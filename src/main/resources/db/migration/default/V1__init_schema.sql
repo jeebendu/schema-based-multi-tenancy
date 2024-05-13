@@ -1,0 +1,5 @@
+CREATE TABLE "users" ( 
+"id" BIGINT AUTO_INCREMENT NOT NULL, 
+"username" VARCHAR(50) NOT NULL, 
+"password" VARCHAR(20) NOT NULL
+);
