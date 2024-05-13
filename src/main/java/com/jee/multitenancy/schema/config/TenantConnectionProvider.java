@@ -32,15 +32,15 @@ public class TenantConnectionProvider implements MultiTenantConnectionProvider<S
     @Override
     public Connection getConnection(String tenantIdentifier) throws SQLException {
         final Connection connection = getAnyConnection();
-        connection.createStatement()
-                .execute(String.format("SET SCHEMA \"%s\";", tenantIdentifier));
+        String schemaQuery = String.format("SET SCHEMA \'%s\';", tenantIdentifier);
+        connection.createStatement().execute(schemaQuery);
         return connection;
     }
 
     @Override
     public void releaseConnection(String tenantIdentifier, Connection connection) throws SQLException {
         connection.createStatement()
-                .execute(String.format("SET SCHEMA \"%s\";", TenantIdentifierResolver.DEFAULT_TENANT));
+                .execute(String.format("SET SCHEMA \'%s\';", TenantIdentifierResolver.DEFAULT_TENANT));
         releaseAnyConnection(connection);
     }
 
