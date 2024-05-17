@@ -1,7 +1,8 @@
 CREATE TABLE "author"
 (
     "id" SERIAL PRIMARY KEY NOT NULL,
-    "name" TEXT
+    "name" TEXT,
+    CONSTRAINT fk_author_globally_unique FOREIGN KEY (id) REFERENCES "default".users(id)
 );
 
 
