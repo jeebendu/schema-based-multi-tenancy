@@ -51,3 +51,8 @@ CREATE TABLE "note"
     "author_id" BIGINT NOT NULL,
     CONSTRAINT fk_author FOREIGN KEY(author_id) REFERENCES author(id)
 );
+
+INSERT INTO "author" ("id","name") VALUES (1,'auther_t3_1');
+INSERT INTO "author" ("id","name") VALUES (2,'auther_t3_2');
+
+INSERT INTO "note" ("text") VALUES ('test1',1);
